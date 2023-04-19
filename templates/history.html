@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <div class="centered">
+        <table class="table table-bordered">
+            <tr>
+                <th>Symbol</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Date</th>
+            </tr>
+            {% for row in transactions%}
+                <tr>
+                    <td>{{ row["symbol"] }}</td>
+                    <td> {{ row["type"] }}</td>
+                    <td>{{ row["price"] }}</td>
+                    <td>{{ row["quantity"] }}</td>
+                    <td>{{ row["date"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

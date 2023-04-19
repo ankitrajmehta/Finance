@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search quote
+{% endblock %}
+
+{% block main %}
+
+    <div class="centered">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th>Name</th>
+                <td>{{ name }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ price | usd }}</td>
+            </tr>
+            <tr>
+                <th>Symbol</th>
+                <td>{{ symbol }}</td>
+            </tr>
+        </table>
+    </div>
+    <form action="/quote" method="post">
+        <input type="text" autofocus class="mb-3 form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Symbol">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+{% endblock %}

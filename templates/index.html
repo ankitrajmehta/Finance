@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <div class="centered">
+        <h1> Your Portfolio: </h2>
+    </div>
+    <div class="centered">
+        <table class="table table-bordered">
+            <tr>
+                <th>Symbol</th>
+                <th>Current Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+            {% for row in user_stock%}
+                <tr>
+                    <td>{{ row["symbol"] }}</td>
+                    <td>{{ row["current_price"] | usd }}</td>
+                    <td>{{ row["quantity"] }}</td>
+                    <td>{{ row["total"] | usd }}</td>
+                </tr>
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td></td>
+                <th>Total</th>
+                <td> {{ total | usd }} </td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        Cash Remaining: {{ cash | usd }}
+    </div>
+{% endblock %}
